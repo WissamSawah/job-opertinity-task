@@ -1,0 +1,10 @@
+#!/bin/bash
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -oE "(([a-zA-Z_/-]*)(.js|.vue)){0,1}$")
+
+eslint="./node_modules/eslint/bin/eslint.js"
+
+list=`echo ${STAGED_FILES} | awk 'BEGIN { ORS = " " } { print }'`
+
+${eslint} ${list} --fix
+
+exit 0

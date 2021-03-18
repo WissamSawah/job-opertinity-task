@@ -1,0 +1,88 @@
+{
+    "root": true,
+    "env": {
+      "node": true,
+      "es6": true,
+      "browser": true,
+      "commonjs": true,
+      "jest": true
+    },
+    "globals": {
+        "Vue": true
+        },
+    "extends": [
+      "plugin:vue/base",
+      "plugin:vue/essential",
+      "plugin:vue/strongly-recommended",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "semi": [
+        "error",
+        "always",
+        { 
+          "omitLastInOneLineBlock": true
+        }
+      ],	
+      "eqeqeq": [1,"always"],
+      "vue/html-indent": [2, 4, {
+        "baseIndent": 1,
+        "switchCase": 0,
+        "ignores": []
+      }],
+      "vue/script-indent": [2, 4, {
+        "baseIndent": 1,
+        "switchCase": 0,
+        "ignores": []
+      }],
+      "vue/max-len": [1, {
+        "code": 140,
+        "template": 100,
+        "tabWidth": 2,
+        "comments": 100,
+        "ignorePattern": "",
+        "ignoreComments": false,
+        "ignoreTrailingComments": false,
+        "ignoreUrls": false,
+        "ignoreStrings": false,
+        "ignoreTemplateLiterals": false,
+        "ignoreRegExpLiterals": false,
+        "ignoreHTMLAttributeValues": false,
+        "ignoreHTMLTextContents": false
+    }],
+    "keyword-spacing": 1,
+      "vue/component-name-in-template-casing": [ 2, "kebab-case", {
+        "registeredComponentsOnly": true,
+        "ignores": []
+      }],
+      "camelcase": 2,
+      "vue/no-restricted-syntax": 1,
+      "vue/no-irregular-whitespace": [2, {
+        "skipStrings": true,
+        "skipComments": false,
+        "skipRegExps": false,
+        "skipTemplates": false,
+        "skipHTMLAttributeValues": false,
+        "skipHTMLTextContents": false
+      }],
+      "no-extra-parens": 2,
+      "key-spacing": 1,
+      "func-call-spacing": 2,
+      "array-bracket-spacing": 1,
+      "array-bracket-newline": [1, {
+        "multiline": true
+      }],
+      "template-curly-spacing": 1
+    },
+    "overrides": [
+      {
+        "files": ["*.vue"],
+        "rules": {
+          "camelcase": 2
+         }
+      }
+    ]
+  }

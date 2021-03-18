@@ -1,0 +1,145 @@
+/** Denna filen innehåller all styling för plattformen **/
+
+.test {
+  margin: 0;
+}
+
+h3 {
+  color: red;
+}
+
+.inc-sub {
+  font-size: 21px;
+  text-align: left;
+  margin-left: 35px;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: #272727 !important;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.v-sheet.v-toolbar:not(.v-sheet--outlined) {
+  box-shadow: unset !important;
+}
+
+.v-responsive__sizer {
+  margin-top: 2em;
+}
+
+.v-navigation-drawer {
+    min-height: 600px;
+}
+
+
+.ce-title {
+  font-size: 5em;
+  color: #fff;
+}
+
+.v-navigation-drawer {
+    display: inline-table !important;
+    background-color: #272727 !important;
+}
+
+.v-list {
+    display: inline-flex !important;
+}
+
+.theme--light.v-application {
+  color: #fff !important;
+}
+
+.v-application,
+.primary-text {
+  color: unset !important;
+  caret-color: #0aaa97 !important;
+}
+
+.v-label {
+  color: #ccc !important;
+  margin-left: 5px !important;
+  z-index: 5;
+}
+
+.theme--light.v-text-field > .v-input__control > .v-input__slot::before {
+  border-color: rgb(28, 106, 97) !important;
+}
+
+.theme--light.v-select .v-select__selection--comma {
+  color: #00f3d4 !important;
+  font-size: 13px !important;
+}
+
+.inc-title {
+  font-family: sans-serif;
+  font-weight: 200;
+  font-size: 3em;
+  text-align: left;
+  margin-left: 35px;
+}
+
+.label {
+  margin-left: 5px;
+}
+
+.title {
+  text-align: left;
+  padding-left: 25px;
+  padding-top: 50px;
+  font-size: 40px;
+}
+
+.subtitle {
+  text-align: left;
+  padding-left: 25px;
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.v-label :focus {
+  color: red !important;
+}
+
+input,
+#username,
+#password {
+  color: #00f3d4 !important;
+  background-color: #2f2f2f !important;
+  padding: 10px !important;
+  font-size: 14px !important;
+}
+
+input::placeholder {
+  color: #ccc !important;
+  font-size: 15px;
+}
+
+.theme--light.v-btn.v-btn--has-bg {
+  background-color: #00ebcd !important;
+  margin-bottom: 1em;
+}
+
+.elevation-6 {
+  box-shadow: unset !important;
+}
+
+.reminder {
+  padding: 5px;
+  color: #0aaa97;
+}
+
+.v-application a {
+  color: #0aaa97;
+  text-decoration: none;
+}
