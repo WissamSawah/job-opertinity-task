@@ -7,53 +7,6 @@
 npm install
 ```
 
-## AWS-CLI setup
-
-Before developing with AWS Amplify, follow the guide at the link below to install AWS CLI:
-```
-https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
-```
-
-After installing aws/cli run the following command and setup the correct credentails to aws.
-
-```
-aws configure
-```
-
-## Amplify setup
-
-
-Start by initializing the project with the following command
-```
-amplify init
-```
-
-And
-
-```
-amplify push auth
-
-```
-
-
-If your CLI cannot find the amplify command, then it means that it isnt installed correctly, start with installing Amplify CLI and then run init once more (may need sudo to complete)
-
-```
-npm install -g @aws-amplify/cli
-```
-
-
-
-## Setup local environment variables
-create ```.env.local``` in project folder
-```
-#In .env.local file
-VUE_APP_COGNITO_USERPOOL_ID=your_userpool_ID
-VUE_APP_COGNITO_APP_DOMAIN=your_app_domain
-VUE_APP_COGNITO_CLIENT_ID=your_client_ID
-
-```
-
 
 ### Compiles and hot-reloads for development
 ```
@@ -74,11 +27,6 @@ npm run lint
 
 
 ## Testing
-
-### CI
-
-(CI - BitBucket)
-
 
 ### Unit Tests
 
@@ -110,8 +58,7 @@ The application is based in the `/src/` folder.
 
 ### Assets
 
-All static assets reside in the `src/assets` folder. Audio files are placed in
-`src/assets/audio`. Video files are placed in `src/assets/video`. Image files
+All static assets reside in the `src/assets` folder. Image files
 are placed in `src/assets/img`.
 
 
