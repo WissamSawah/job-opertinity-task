@@ -18,6 +18,7 @@ public class ResourceController {
 
     public ResourceController() {}
 
+    @CrossOrigin(origins = "http://localhost:8081")
     @GetMapping()
     public List<Resource> getAllResources()
     {
@@ -25,11 +26,13 @@ public class ResourceController {
         return allResources;
     }
 
+    @CrossOrigin(origins = "http://localhost:8081")
     @GetMapping("/{hostName}")
     public Resource getResourceByHostName(@PathVariable String hostName) {
         return this.resourceRepository.getByHostName(hostName);
     }
 
+    @CrossOrigin(origins = "http://localhost:8081")
     @PostMapping()
     public ResponseEntity<?> createResource(@RequestBody Resource newResource)
     {
