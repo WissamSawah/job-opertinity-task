@@ -4,13 +4,7 @@ public class ErrorMsg {
     private int statusCode;
     private String reason;
 
-    public ErrorMsg() {
-    }
-
-    public ErrorMsg(int statusCode, String reason) {
-        this.statusCode = statusCode;
-        this.reason = reason;
-    }
+    public ErrorMsg() {}
 
     public int getStatusCode() {
         return statusCode;

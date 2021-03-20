@@ -16,4 +16,9 @@ public class ValidationConfiguration {
     public LocalValidatorFactoryBean validator() {
         return new LocalValidatorFactoryBean();
     }
+
+    @Bean
+    public ErrorMsg errorMsgFactory() {
+        return new ErrorMsg();
+    }
 }
