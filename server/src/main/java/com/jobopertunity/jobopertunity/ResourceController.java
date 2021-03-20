@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -51,6 +52,9 @@ public class ResourceController {
             return new ResponseEntity("Resource Added Successfully", HttpStatus.CREATED);
         } catch (DuplicateKeyException e) {
             this.errorMsg.setErrorMsg(400, "Hostname must be a unique value");
+            return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
+        } catch (ConstraintViolationException e) {
+            this.errorMsg.setErrorMsg(400, "You must supply a hostName when creating a resource");
             return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
         }
 
