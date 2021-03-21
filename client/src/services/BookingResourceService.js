@@ -15,10 +15,10 @@ class BookingResourceService {
 
   book(data) {
     return http.post("/resource/book", data);
-  }
+}
 
-  release(data) {
-    return http.delete("/resource/release", data);
+  delete(data) {
+    return http.post("/resource/release", data);
   }
 
 }

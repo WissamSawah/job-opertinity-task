@@ -60,7 +60,7 @@
                             v-if="currentResource.bookings.length > 0"
                         >
                             <strong>Booked By:</strong>
-                            {{ currentResource.bookings.join(',') }}
+                            {{ currentResource.bookings.join(', ') }}
                         </span>
                     </v-expansion-panel-content>
                 </v-expansion-panel>

@@ -27,6 +27,12 @@
             >
                 Book Resource
             </v-btn>
+            <v-btn
+                to="/release"
+                text
+            >
+                Release Booking
+            </v-btn>
         </v-app-bar>
 
         <v-main>

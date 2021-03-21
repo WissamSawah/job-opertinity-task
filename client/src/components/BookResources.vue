@@ -19,7 +19,7 @@
                 <v-text-field
                     v-model="resources.bookedResource"
                     :rules="[(v) => !!v || 'bookedResource is required']"
-                    label="bookedResource"
+                    label="Resource to book"
                     required
                 />
                 <br>

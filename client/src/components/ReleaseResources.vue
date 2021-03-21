@@ -29,14 +29,15 @@
                     elevation="15"
                     type="error"
                 >
-                    User have already booked resources!
+                    {{ errorMsg }}
                 </v-alert>
                 <v-btn
                     color="primary"
                     class="mt-3"
-                    type="submit"
                     :disabled="!isValid"
+                    type="submit"
                 >
+
                     Release
                 </v-btn>
             </v-form>
@@ -64,7 +65,8 @@
                     bookedResource: null
                 },
                 submitted: false,
-                isValid: false
+                isValid: false,
+                errorMsg: ''
             };
         },
         methods: {
@@ -74,17 +76,16 @@
                     bookedResource: this.resources.bookedResource
                 };
 
-                BookingResourceService.release(data)
+                BookingResourceService.delete(data)
                     .then((response) => {
                         this.resources.clientId = response.data.clientId,
-                        this.resources.clientId = response.data.clientId;
-
 
                         console.log(response.data);
                         this.submitted = true;
                     })
                     .catch((e) => {
                         console.log(e);
+                        this.errorMsg = e.response.data.reason;
                         this.error = true;
                     });
             },
