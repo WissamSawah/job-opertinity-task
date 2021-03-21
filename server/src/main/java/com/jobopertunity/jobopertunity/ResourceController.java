@@ -58,8 +58,7 @@ public class ResourceController {
 
     @CrossOrigin(origins = "http://localhost:8081")
     @PostMapping("/book")
-    public ResponseEntity<?> createBooking(@RequestBody Booking booking)
-    {
+    public ResponseEntity<?> createBooking(@RequestBody Booking booking) throws Exception {
         if (this.userIsAlreadyBooked(booking.getClientId())) {
             this.errorMsg.setErrorMsg(400, "User with given clientId is already booked on a resource");
             return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
@@ -80,14 +79,20 @@ public class ResourceController {
                 return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
             }
         } else {
-            String hostName = this.getRandomAvailableResource();
-            Resource resource = this.resourceRepository.getByHostName(hostName);
-            if (resource.getBookings().size() >= resource.getBookingLimit()) {
-                this.errorMsg.setErrorMsg(400, "Given resource is at it's limit of bookings");
+            try {
+                String hostName = this.getRandomAvailableResource();
+                Resource resource = this.resourceRepository.getByHostName(hostName);
+                if (resource.getBookings().size() >= resource.getBookingLimit()) {
+                    this.errorMsg.setErrorMsg(400, "Given resource is at it's limit of bookings");
+                    return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
+                }
+                resource.addBooking(booking.getClientId());
+                this.resourceRepository.save(resource);
+            } catch (Exception e) {
+                this.errorMsg.setErrorMsg(400, "No available resource at the moment");
                 return new ResponseEntity(this.errorMsg, HttpStatus.BAD_REQUEST);
             }
-            resource.addBooking(booking.getClientId());
-            this.resourceRepository.save(resource);
+
         }
         return new ResponseEntity("Booking created", HttpStatus.CREATED);
     }
@@ -121,12 +126,12 @@ public class ResourceController {
         return false;
     }
 
-    private String getRandomAvailableResource() {
+    private String getRandomAvailableResource() throws Exception {
         List<String> availableResources = this.findFreeResources();
         Random rand = new Random();
         return availableResources.get(rand.nextInt(availableResources.size()));
     }
-    private List<String> findFreeResources() {
+    private List<String> findFreeResources() throws Exception {
         List<Resource> allResources = this.resourceRepository.findAll();
         List<String> availableResources = new ArrayList();
         for (int i= 0; i < allResources.size(); i++) {
@@ -135,7 +140,10 @@ public class ResourceController {
                 availableResources.add(currentR.getHostName());
             }
         }
+        if (availableResources.size() == 0) {
+            throw new Exception();
+        }
         return availableResources;
-        //TODO throw error if list size is 0
+
     }
 }
