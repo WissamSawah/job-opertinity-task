@@ -29,7 +29,7 @@
                     elevation="15"
                     type="error"
                 >
-                    User have already booked resources!
+                    {{ errorMsg }}
                 </v-alert>
                 <v-btn
                     color="primary"
@@ -68,7 +68,8 @@
                     bookedResource: null
                 },
                 submitted: false,
-                isValid: false
+                isValid: false,
+                errorMsg: ''
             };
         },
         methods: {
@@ -87,6 +88,7 @@
                     .catch((e) => {
                         console.log(e);
                         this.error = true;
+                        this.errorMsg = e.response.data.reason;
                     });
             },
 

@@ -22,14 +22,13 @@
                     :rules="[v => !!v || 'bookingLimit is required']"
                     required
                 />
-                <br>
                 <v-alert
                     v-if="error"
                     dense
                     elevation="15"
                     type="error"
                 >
-                    Host name should be unique!
+                    {{ errorMsg }}
                 </v-alert>
 
                 <v-btn
@@ -63,11 +62,12 @@
         name: "AddResources",
         data() {
             return {
-                error: false,
                 hostName: null,
                 bookingLimit: null,
                 submitted: false,
-                isValid: false
+                isValid: false,
+                error: false,
+                errorMsg: ''
             };
         },
         methods: {
@@ -83,7 +83,7 @@
                         this.submitted = true;
                     })
                     .catch((e) => {
-                        console.log(e);
+                        this.errorMsg = e.response.data.reason;
                         this.error = true;
                     });
             },
