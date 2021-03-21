@@ -1,4 +1,4 @@
-# cerberus-app
+# Resource Booking Client
 
 
 
