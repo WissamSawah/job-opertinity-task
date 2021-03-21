@@ -1,16 +1,33 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "@/components/Home";
-
-
+import ListResources from "@/components/ListResources";
+import AddResources from "@/components/AddResources";
+import BookResources from "@/components/BookResources";
+import ReleaseResources from "@/components/ReleaseResources";
 
 Vue.use(Router);
 
 const routes = [
     {
         path: "/",
-        name: "Home",
-        component: Home
+        alias: "/resources",
+        name: "resources",
+        component: ListResources
+    },
+    {
+        path: "/add",
+        name: "add",
+        component: AddResources
+    },
+    {
+        path: "/book",
+        name: "book",
+        component: BookResources
+    },
+    {
+        path: "/release",
+        name: "release",
+        component: ReleaseResources
     }
 ];
 

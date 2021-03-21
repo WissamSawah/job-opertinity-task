@@ -1,22 +1,51 @@
 <template>
     <v-app>
-        <component :is="layout">
-            <router-view :layout.sync="layout" />
-        </component>
+        <v-app-bar
+            app
+            dark
+        >
+            <div class="d-flex align-center mr-2">
+                ResourceBooking
+            </div>
+
+            <v-btn
+                to="/resources"
+                text
+            >
+                Resources
+            </v-btn>
+
+            <v-btn
+                to="/add"
+                text
+            >
+                Add Resource
+            </v-btn>
+            <v-btn
+                to="/book"
+                text
+            >
+                Book Resource
+            </v-btn>
+        </v-app-bar>
+
+        <v-main>
+            <router-view />
+        </v-main>
+        <ftr />
     </v-app>
 </template>
 
 <script>
+    import Footer from '../src/components/Footer';
 
     export default {
-        name: 'App',
-        data: () => ({
-            layout: `div`,
-        }),
+
+        name: "App",
+        components: {
+
+            ftr: Footer
+
+        }
     };
 </script>
-
-<style>
-@import './css/style.scss';
-
-</style>

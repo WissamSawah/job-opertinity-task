@@ -8,9 +8,6 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "eslint --fix . -c '.eslintrc.json' --ext .vue --ext .js",
-    "js-fix": "bash ./hooks/js-fix",
-    "postinstall": "cp hooks/pre-commit .git/hooks/pre-commit",
-    "sass-fix": "bash ./hooks/sass-fix",
     "sass-lint": "npx stylelint 'src/css/**/*.scss'"
   },
   "dependencies": {
